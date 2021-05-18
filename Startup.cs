@@ -1,3 +1,5 @@
+using DataLibrary.Data;
+using DataLibrary.Db;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +26,15 @@ namespace RazorPagesDemoApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            // Singleton's will live for the lifespan of everyone's instance
+            services.AddSingleton(new ConnectionStringData 
+            {
+
+                SqlConnectionName = "default"
+            });
+            services.AddSingleton<IDataAccess, SqlDb>();
+            services.AddSingleton<IFoodData, FoodData>();
+            services.AddSingleton<IOrderData, OrderData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
