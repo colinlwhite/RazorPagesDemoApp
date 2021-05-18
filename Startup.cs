@@ -32,6 +32,8 @@ namespace RazorPagesDemoApp
 
                 SqlConnectionName = "default"
             });
+            // Whenever someone asks for an instance of IDataAccess, we give them back an instance of SqlDb
+            // To change the DB for the entire app, we just change the second parameter to another DB class in Library
             services.AddSingleton<IDataAccess, SqlDb>();
             services.AddSingleton<IFoodData, FoodData>();
             services.AddSingleton<IOrderData, OrderData>();
