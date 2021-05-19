@@ -62,6 +62,7 @@ namespace RazorPagesDemoApp
 
             app.UseEndpoints(endpoints =>
             {
+                // Creates a routing scheme based on the Pages folder
                 endpoints.MapRazorPages();
             });
         }
