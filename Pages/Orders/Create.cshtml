@@ -1,4 +1,11 @@
 ﻿@page
 @model RazorPagesDemoApp.Pages.Orders.CreateModel
 @{
+    ViewData["Title"] = "Create";
 }
+
+<h1>Create</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+</form>
