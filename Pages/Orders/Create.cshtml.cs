@@ -49,7 +49,7 @@ namespace RazorPagesDemoApp.Pages.Orders
 
             int id = await _orderData.CreateOrder(Order);
 
-            return RedirectToPage("./Create");
+            return RedirectToPage("./Display", new { Id = id });
         }
 
     }
